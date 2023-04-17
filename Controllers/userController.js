@@ -91,7 +91,7 @@ const Update = async (req, res) => {
 };
 const deadEnd = async (req, res) => {
     try {
-        const totalTime = req.body.level1 + req.body.level3 + req.body.level3 + req.body.level4;
+        const totalTime = req.body.level1 + req.body.level2 + req.body.level3 + req.body.level4;
         const loggedUser = await User.findOne({ _id: req.decodedToken.id });
         let newScore = [...loggedUser.score];
         newScore.push({
@@ -131,7 +131,7 @@ const lastData = async (req, res) => {
             level4: req.body.level4,
             totalScore: req.body.level * 5,
             time:
-                req.body.level1 + req.body.level3 + req.body.level3 + req.body.level4,
+                req.body.level1 + req.body.level2 + req.body.level3 + req.body.level4,
         };
         console.log(answers);
         for (let i = 0; i < answers.length; i++) {
