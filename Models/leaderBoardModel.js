@@ -4,7 +4,23 @@ const leaderBoardSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    score:{
+    level1:{
+        type:Number,
+        require:true
+    },
+    level2:{
+        type:Number,
+        require:true
+    },
+    level3:{
+        type:Number,
+        require:true
+    },
+    level4:{
+        type:Number,
+        require:true
+    },
+    totalScore:{
         type:Number,
         required:true
     },
