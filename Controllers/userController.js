@@ -99,7 +99,7 @@ const deadEnd = async (req, res) => {
             level2: req.body.level2,
             level3: req.body.level3,
             level4: req.body.level4,
-            totalScore: (req.body.level - 1) * 5 > 0 ? (req.body.level - 1) * 5 : 0,
+            core: (req.body.level - 1) * 5 > 0 ? (req.body.level - 1) * 5 : 0,
             time: totalTime,
         });
         const user = await User.findByIdAndUpdate(req.decodedToken.id, {
@@ -108,8 +108,12 @@ const deadEnd = async (req, res) => {
         });
         const leader = await leaderBoard.create({
             name: loggedUser.name,
+            level1: req.body.level1,
+            level2: req.body.level2,
+            level3: req.body.level3,
+            level4: req.body.level4,
+            totalScore: (req.body.level - 1) * 5 > 0 ? (req.body.level - 1) * 5 : 0,
             time: totalTime,
-            score: (req.body.level - 1) * 5 > 0 ? (req.body.level - 1) * 5 : 0,
         });
         res.json({ message: user.name + "'s socre is updated" });
     } catch (e) {
@@ -164,8 +168,12 @@ const lastData = async (req, res) => {
                 });
                 const leader = await leaderBoard.create({
                     name: loggedUser.name,
-                    time: newData.time,
-                    score: newData.totalScore,
+                    level1: req.body.level1,
+                    level2: req.body.level2,
+                    level3: req.body.level3,
+                    level4: req.body.level4,
+                    totalScore: (req.body.level - 1) * 5 > 0 ? (req.body.level - 1) * 5 : 0,
+                    time: totalTime,
                 });
                 res.json({ message: true });
                 break;
