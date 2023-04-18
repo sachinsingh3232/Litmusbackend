@@ -173,7 +173,7 @@ const lastData = async (req, res) => {
                     level3: req.body.level3,
                     level4: req.body.level4,
                     totalScore: (req.body.level - 1) * 5 > 0 ? (req.body.level - 1) * 5 : 0,
-                    time: totalTime,
+                    time: newData.time,
                 });
                 res.json({ message: true });
                 break;
