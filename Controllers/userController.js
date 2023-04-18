@@ -124,7 +124,6 @@ const lastData = async (req, res) => {
     try {
         // console.log(req.body.level);
         const ans = req.body.ans.toLowerCase();
-        console.log(ans + " line 123");
         const answ = await IMAGE.findOne({ level: req.body.level });
         const answers = answ.answer;
         const newData = {
